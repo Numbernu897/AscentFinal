@@ -26,6 +26,7 @@ export type QuickSelectItemProps = {
   name: string;
   image: string;
   artist: string;
+  pin: boolean;
 };
 
 // Arrow Functions
@@ -39,6 +40,7 @@ const QuickSelectItem = (props: QuickSelectItemProps) => {
         height="52"
         width="64"
       >
+
         <Row
           space="4"
           alignItems="center"
@@ -55,6 +57,7 @@ const QuickSelectItem = (props: QuickSelectItemProps) => {
             height="100%"
             borderRadius="8"
           />
+
           <VStack alignItems="flex-start">
             <Text color="muted.50" fontSize="16" fontWeight="bold">
               {props.name}
@@ -64,6 +67,11 @@ const QuickSelectItem = (props: QuickSelectItemProps) => {
             </Text>
           </VStack>
         </Row>
+        {props.pin && (
+          <Box position="absolute" top="0">
+            <Icon as={Ionicons} name="caret-down" size="4" color="muted.50" ></Icon>
+          </Box>
+        )}
         <Icon as={Ionicons} name="ellipsis-vertical" size="8" color="muted.500" />
       </Box>
     </>

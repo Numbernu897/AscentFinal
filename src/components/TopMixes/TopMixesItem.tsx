@@ -4,6 +4,7 @@ import { Box, Text, Image } from "native-base";
 export type TopMixesItemProps = {
   name: string;
   image: string;
+  color: string;
 };
 
 // Arrow Functions
@@ -54,7 +55,7 @@ const TopMixesItem = (props: TopMixesItemProps) => {
             left="-5%"
           ></Box>
 
-          <Box width="100%" height="5%" bgColor="primary.500" position="absolute" bottom="0"></Box>
+          <Box width="100%" height="5%" bgColor={props.color} position="absolute" bottom="0"></Box>
         </Box>
       </Box>
     </>
