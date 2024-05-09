@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, View } from "react-native";
 import React from "react";
 import { useAppDispatch } from "../store";
-import { Button, Center, Column, Heading, Row, ScrollView, Box, HStack, Avatar, VStack, Text, IconButton } from "native-base";
+import { Button, Center, Column, Heading, Row, ScrollView, Box, HStack, Avatar, VStack, Text, IconButton, Image } from "native-base";
 import { Ionicons } from '@expo/vector-icons';
 import SearchCardItem from "../components/SearchCard/SearchCardItem";
 import { SEARCHCARD_LIST } from "../data/data";
@@ -10,10 +10,15 @@ const Explore = () => {
   const dispatch = useAppDispatch();
   return (
     <Column bg="muted.900" flex={1}>
-      <Box safeAreaTop backgroundColor="muted.900">
+      <Box safeAreaTop backgroundColor="muted.900" mb="22">
         <HStack justifyContent="space-between" alignItems="center" px="4">
           <HStack alignItems="center" space="3">
-            {/* <Avatar size="md" source={{ uri: props.avatar }} /> */}
+            <Image
+              source={require('../../assets/Logo.png')}  // Update path as needed
+              alt="Logo"
+              size="32px"
+              borderRadius="full"
+            />
             <VStack>
               <Heading color="white">
                 Explore
@@ -22,6 +27,10 @@ const Explore = () => {
           </HStack>
         </HStack>
       </Box>
+
+
+
+  
       <Box px="4">
         {SEARCHCARD_LIST.map((item) => (
           <SearchCardItem key={item.name + "0"} {...item} />
