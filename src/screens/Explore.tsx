@@ -1,8 +1,11 @@
 import { Pressable, StyleSheet, View } from "react-native";
 import React from "react";
 import { useAppDispatch } from "../store";
+
 import { Button, Center, Column, Heading, Row, ScrollView, Box, HStack, Avatar, VStack, Text, IconButton, Image } from "native-base";
 import { Ionicons } from '@expo/vector-icons';
+
+
 import SearchCardItem from "../components/SearchCard/SearchCardItem";
 import { SEARCHCARD_LIST } from "../data/data";
 
@@ -20,9 +23,7 @@ const Explore = () => {
               borderRadius="full"
             />
             <VStack>
-              <Heading color="white">
-                Explore
-              </Heading>
+              <Heading color="white">Explore</Heading>
             </VStack>
           </HStack>
         </HStack>
@@ -30,28 +31,26 @@ const Explore = () => {
 
 
 
-  
+
       <Box px="4">
-        {SEARCHCARD_LIST.map((item) => (
-          <SearchCardItem key={item.name + "0"} {...item} />
+        {SEARCHCARD_LIST.map((item, index) => (
+          <SearchCardItem key={item.name + String(index)} {...item} />
         ))}
       </Box>
       <Column my="22" flex={1}>
         <Heading color="white" px="4" mb="4">
           Quick Selection
         </Heading>
-        <ScrollView showsVerticalScrollIndicator={false} >
-          <Column>
-            <Row>
-              {SEARCHCARD_LIST.map((item) => (
-                <SearchCardItem key={item.name + "0"} {...item} />
+        <ScrollView flex={1} showsVerticalScrollIndicator={false}>
+          <Column w="full">
+            <Row w="full" background="red.200">
+              {SEARCHCARD_LIST.map((item, index) => (
+                <SearchCardItem key={item.name + String(index)} {...item} />
               ))}
             </Row>
           </Column>
         </ScrollView>
       </Column>
-
-
     </Column>
   );
 };
